@@ -1,22 +1,19 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());        // 수의 갯수 입력
-
-        int[] arr = new int[N];
+        int N = Integer.parseInt(br.readLine());        
+        boolean[] arr = new boolean[2001];
         for (int i=0; i<N; i++){
-            arr[i] = Integer.parseInt(br.readLine());   // 수 입력
+            arr[Integer.parseInt(br.readLine())+1000] = true;  
         }
 
-        Arrays.sort(arr);
-
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < N; i++) {
-            sb.append(arr[i]).append('\n'); // 정렬된 수를 StringBuilder에 추가
+        for (int i = 0; i < 2001; i++) {
+            if(arr[i])
+            sb.append(i-1000).append('\n'); 
         }
     
         System.out.println(sb.toString());
